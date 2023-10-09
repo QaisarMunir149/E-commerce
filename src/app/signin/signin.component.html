@@ -1,0 +1,97 @@
+<!-- Main Section with Background Color -->
+<section class="h-100 bg-color-section">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <!-- Registration Card -->
+        <div class="card card-registration my-4">
+          <div class="row g-0">
+            <!-- Left-side Column with Background Color -->
+            <div
+              class="col-xl-5 d-flex justify-content-center align-items-center bg-color"
+            >
+              <div class="">
+                <div
+                  class="d-flex flex-column justify-content-center align-items-center"
+                >
+                  <!-- Welcome Message -->
+                  <h1 class="text-white">Hello Friends</h1>
+                  <!-- Description -->
+                  <div class="text-white mt-4">
+                    Enter your Personal Details and Start Journey With us
+                  </div>
+                  <!-- Sign Up Button -->
+                  <button
+                    class="btn button mt-5 btn-custom-color"
+                    (click)="redirectToSignup()"
+                  >
+                    SIGN UP
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Right-side Column for Sign In -->
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <!-- Sign In Header -->
+                <div class="mb-5 text-uppercase text-center text-success">
+                  <h3 class="bg-color-text">SIGN IN</h3>
+                </div>
+                <!-- Sign In Form -->
+                <form
+                  #signInForm="ngForm"
+                  (ngSubmit)="signinUserData(signInForm.value)"
+                >
+                  <!-- Email Input -->
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example8">Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Enter email"
+                      ngModel
+                      email
+                      required
+                      #email="ngModel"
+                      class="form-control form-control-lg"
+                    />
+                    <!-- Email Validation Error Message -->
+                    <span *ngIf="email.invalid" class="text-danger"
+                      >Please Enter A Valid Email</span
+                    >
+                  </div>
+                  <!-- Password Input -->
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form3Example9"
+                      >Password</label
+                    >
+                    <input
+                      type="password"
+                      name="password"
+                      placeholder="Enter password"
+                      ngModel
+                      minlength="7"
+                      required
+                      #password="ngModel"
+                      class="form-control form-control-lg"
+                    />
+                    <!-- Password Validation Error Message -->
+                    <span *ngIf="password.invalid" class="text-danger"
+                      >Please Enter 7 Digit Password</span
+                    >
+                  </div>
+                  <!-- Sign In Button -->
+                  <button
+                    class="btn form-control form-control-lg mt-4 bg-color color-white"
+                  >
+                    SIGN IN
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

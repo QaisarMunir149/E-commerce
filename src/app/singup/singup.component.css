@@ -1,0 +1,42 @@
+/* Styling for Signup Image */
+.SingUp-img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+}
+
+/* Background Color for Certain Sections */
+.color {
+  background-color: #783937;
+  /* You can uncomment the width property if needed */
+  /* width: max-content; */
+}
+
+/* Text Color for Background Sections */
+.bg-color-text {
+  color: #783937;
+  font-weight: 700;
+}
+
+/* Background Color for a Section */
+.bg-color-section {
+  background-color: #fff0e1;
+}
+
+/* White Text Color with Bold Font */
+.color-white {
+  color: white;
+  font-weight: 700;
+}
+
+/* Hover Effect for White Text */
+.color-white:hover {
+  background-color: #f1ac88;
+  box-shadow: 1px 3px 8px 1px #783937;
+}
+
+/* Hover Effect for Custom Buttons */
+.btn-cutom-color:hover {
+  background-color: #783937;
+  box-shadow: 1px 3px 8px 1px #f1ac88;
+}

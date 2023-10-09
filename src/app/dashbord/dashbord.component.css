@@ -1,0 +1,39 @@
+/* Apply custom padding to elements with the .custom-padding class */
+.custom-padding {
+  padding: 40px 0 70px 0 !important; /* Top, Right, Bottom, Left padding */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Add a custom border to elements with the .custom-border class */
+.custom-border {
+  border: 4px solid lightblue; /* Border width, style, and color */
+}
+
+/* Set background color for elements with the .bg-color class */
+.bg-color {
+  background-color: #783937; /* Background color in hex */
+}
+
+/* Define background color and border for elements with the .btn-color class */
+.btn-color {
+  background-color: #f1ac88; /* Background color in hex */
+  border: none; /* Remove border */
+}
+
+/* Set background color for elements with the .bachground-color class */
+.bachground-color {
+  background-color: #fff0e1; /* Background color in hex */
+}
+
+/* Define background color and border radius for elements with the .custom-div-color class */
+.custom-div-color {
+  background-color: #f1ac88; /* Background color in hex */
+  border-radius: 15px; /* Rounded corners */
+}
+
+/* Apply button hover styles to elements with the .button-hover class */
+.button-hover:hover {
+  background-color: #783937; /* Background color on hover */
+  box-shadow: 1px 3px 8px 1px #f1ac88; /* Box shadow on hover */
+  color: white; /* Text color on hover */
+}

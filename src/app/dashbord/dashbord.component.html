@@ -1,0 +1,181 @@
+<div class="container-fluid d-flex background-color">
+  <!-- Sidebar -->
+  <div
+    class="col-3 bg-color d-flex flex-column text-center align-items-center custom-padding"
+  >
+    <!-- User Profile Section -->
+    <img
+      src="../../assets/motorcycle-8192323_640.jpg"
+      alt=""
+      class="rounded-circle custom-border"
+      style="width: 150px !important; height: 150px !important"
+    />
+    <h3 class="mt-4 text-white">{{ firstName }} {{ lastName }}</h3>
+    <button
+      class="btn btn-lg mt-4 w-75 rounded-pill btn-color button-hover text-white"
+    >
+      PROFILE
+    </button>
+    <select
+      #item
+      (change)="onSelected(item.value)"
+      class="btn btn-lg mt-4 w-75 rounded-pill btn-color button-hover text-white"
+    >
+      <option selected disabled>Category</option>
+      <option value="mobile">Mobile</option>
+      <option value="cars">Cars</option>
+      <option value="ship">Ships</option>
+    </select>
+    <button
+      class="btn btn-lg text-white mt-4 w-75 rounded-pill btn-color button-hover"
+      (click)="goToSignin()"
+    >
+      Logout
+    </button>
+  </div>
+
+  <!-- Main Content -->
+  <div class="col-9 d-flex flex-column justify-content-center">
+    <div class="d-flex justify-content-end mr-5 p-2">
+      <!-- Search Bar -->
+      <div class="col">
+        <input
+          [(ngModel)]="searchText"
+          (input)="onSearch($event.target)"
+          placeholder="Search Item"
+          class="rounded-pill mr-3 col-5 p-2"
+        />
+      </div>
+      <!-- Create Button -->
+      <button
+        type="button"
+        class="btn btn-danger"
+        data-toggle="modal"
+        data-target="#myModal"
+        (click)="showbtn()"
+      >
+        Create
+      </button>
+    </div>
+
+    <!-- Product List -->
+    <div class="d-flex flex-wrap ml-4 mt-3 justify-content-between">
+      <div
+        class="custom-div-color col-5 p-3 mb-3"
+        *ngFor="let user of products"
+      >
+        <div class="d-flex">
+          <img
+            src="../../assets/motorcycle-8192323_640.jpg"
+            alt=""
+            class="col-5 p-0 rounded"
+            style="height: 150px !important"
+          />
+          <div class="pl-3">
+            <h2>{{ user.name }}</h2>
+            <h3>{{ user.price }}</h3>
+            <h4>{{ user.brand }}</h4>
+            <h5>{{ user.category }}</h5>
+          </div>
+        </div>
+        <div class="mt-3">
+          <!-- Delete and Edit Buttons -->
+          <i
+            class="fa-solid fa-trash text-danger"
+            style="font-size: 30px"
+            (click)="deleteUser(user)"
+          ></i>
+          <i
+            class="fa-solid fa-pen-to-square ml-4 text-success"
+            style="font-size: 30px"
+            (click)="editData(); onSelect(user)"
+            data-toggle="modal"
+            data-target="#myModal"
+          ></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Form -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+      </div>
+
+      <!-- Product Form -->
+      <form [formGroup]="createProduct" class="p-5 w-100">
+        <div>
+          <label for="">Name</label>
+          <input
+            type="text"
+            placeholder="Enter Name"
+            name="name"
+            formControlName="name"
+            class="w-100 p-2 round"
+          /><br /><br />
+
+          <label for="">Price</label>
+          <input
+            type="text"
+            placeholder="Enter Price"
+            name="price"
+            formControlName="price"
+            class="w-100 p-2 round"
+          /><br /><br />
+
+          <label for="">Brand</label>
+          <input
+            type="text"
+            placeholder="Enter Brand Name"
+            name="brand"
+            formControlName="brand"
+            class="w-100 p-2 round"
+          /><br /><br />
+
+          <div class="d-flex flex-column">
+            <label for="">Category</label>
+            <select
+              name="category"
+              formControlName="category"
+              class="p-2 round"
+            >
+              <option value="" disabled selected hidden></option>
+              <option value="cars">Cars</option>
+              <option value="mobile">Mobile</option>
+              <option value="ship">Ships</option>
+              <option value="airplane">Airplane</option>
+            </select>
+          </div>
+          <br /><br />
+
+          <!-- Update and Add Buttons -->
+          <button
+            *ngIf="update"
+            data-dismiss="modal"
+            class="btn col-6 btn-warning round"
+            (click)="updateData()"
+          >
+            Update
+          </button>
+          <button
+            class="close"
+            data-dismiss="modal"
+            (click)="addProduct()"
+            *ngIf="!update"
+            class="btn col-6 btn-success round"
+          >
+            + ADD
+          </button>
+        </div>
+      </form>
+
+      <div class="modal-footer"></div>
+    </div>
+  </div>
+</div>
